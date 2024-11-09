@@ -1,0 +1,31 @@
+#detailed-explanation h2 {
+  @apply text-3xl font-bold mb-4;
+}
+
+#detailed-explanation h3 {
+  @apply text-2xl font-bold mt-6 mb-2;
+}
+
+#detailed-explanation p {
+  @apply mb-2;
+}
+
+#detailed-explanation strong {
+  @apply font-semibold;
+}
+
+#detailed-explanation ul {
+  @apply list-disc pl-5 mb-4;
+}
+
+#detailed-explanation li {
+  @apply mb-1;
+}
+
+.mermaid svg {
+  stroke: white;
+}
+
+.mermaid {
+  @apply bg-slate-100 mx-auto;
+}
