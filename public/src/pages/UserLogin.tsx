@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const apiUrl = process.env.REACT_APP_API;
+// const apiUrl = process.env.REACT_APP_API;
+const apiUrl = "http://localhost:5000";
 
 const UserLogin = () => {
   const [username, setUsername] = useState("");
@@ -36,9 +37,9 @@ const UserLogin = () => {
     });
     console.log(data);
   }
-  useEffect(() => {
-    start();
-  }, []);
+  // useEffect(() => {
+  //   start();
+  // }, []);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-100 via-white to-blue-100 p-10">

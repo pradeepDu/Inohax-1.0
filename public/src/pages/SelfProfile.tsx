@@ -2,6 +2,7 @@ import { FaBrain, FaCode, FaDatabase, FaRobot } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import ProfileCard from "../components/ProfileCard";
 import { useAppSelector } from "./redux";
+import Header from "../components/Header";
 
 const SelfProfile = () => {
   const profile = useAppSelector((store) => store.userInfo.userInfo);
@@ -52,6 +53,8 @@ const SelfProfile = () => {
       <div className="w-full flex justify-center items-center">
         <ProfileCard profile={profile} />
       </div>
+      <Header />
+
       <h1 className=" font-mono font-bold text-3xl mb-3">Suggestions</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-16">
         {testingModules.map((module, index) => (

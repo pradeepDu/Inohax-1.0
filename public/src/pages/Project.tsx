@@ -5,7 +5,8 @@ import markdownIt from 'markdown-it';
 import './Project.css';
 import { store, useAppSelector } from './redux';
 
-const apiUrl = process.env.REACT_APP_API;
+// const apiUrl = process.env.REACT_APP_API;
+const apiUrl = "http://localhost:5000";
 
 interface MermaidDiagramProps {
     chart: string;

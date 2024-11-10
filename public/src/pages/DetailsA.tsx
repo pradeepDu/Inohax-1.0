@@ -2,7 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const apiUrl = process.env.REACT_APP_API;
+// const apiUrl = process.env.REACT_APP_API;
+const apiUrl = "http://localhost:5000";
 
 
 const DetailsA: React.FC = () => {

@@ -3,7 +3,9 @@ import React, { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { setUserType, useAppDispatch } from "./redux";
 
-const apiUrl = process.env.REACT_APP_API;
+// const apiUrl = process.env.REACT_APP_API;
+const apiUrl = "http://localhost:5000";
+
 
 const AdministratorLogin = () => {
   const [admindata, setadmindata] = useState({ adminName: "", password: "" });

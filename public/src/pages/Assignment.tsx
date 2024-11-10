@@ -7,7 +7,9 @@ import Confetti from "react-confetti";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "./redux";
 
-const apiUrl = process.env.REACT_APP_API;
+// const apiUrl = process.env.REACT_APP_API;
+const apiUrl = "http://localhost:5000";
+
 
 function Assignment() {
   const [question, setQuestion] = useState("");
@@ -44,7 +46,7 @@ function Assignment() {
   const [codeparseLoading, setcodeparseLoading] = useState<boolean>(false);
   const [codeparseError, setcodeparseError] = useState<boolean>(false);
 
-  const apiUrl = process.env.API;
+  // const apiUrl = process.env.API;
 
   // Fetch steps and start the timer
   useEffect(() => {

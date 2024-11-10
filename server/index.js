@@ -4,12 +4,11 @@ const cors = require("cors");
 const adminLogin = require("./models/adminAuth");
 const postQuestion = require("./models/questionModel");
 const axios = require("axios");
-const Groq = require('groq-sdk');
+const Groq = require("groq-sdk");
 
-require('dotenv').config();
- 
+require("dotenv").config();
+
 const GroqKey = process.env.GROQ_API_KEY; // Load the API key from .env
-
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const mongoose = require("mongoose");
@@ -21,7 +20,7 @@ mongoose
     console.log("DB connection Successful!");
   })
   .catch((e) => {
-    console.log(e.message);
+    console.log(e);
   });
 
 const app = express();
@@ -916,8 +915,6 @@ app.post("/", async (req, res) => {
 
 // server.js
 
-
-
 // Define the Groq API URL
 // Load the API key from .env
 
@@ -925,11 +922,11 @@ app.post("/", async (req, res) => {
 // Example endpoint to handle Groq request
 const groq = new Groq({ groqKey: process.env.GROQ_API_KEY });
 
-app.post('/generate-ai-response', async (req, res) => {
+app.post("/generate-ai-response", async (req, res) => {
   const { prompt } = req.body;
 
   if (!prompt) {
-    return res.status(400).json({ error: 'Prompt is required' });
+    return res.status(400).json({ error: "Prompt is required" });
   }
 
   try {
@@ -937,26 +934,30 @@ app.post('/generate-ai-response', async (req, res) => {
     const response = await groq.chat.completions.create({
       messages: [
         {
-          role: 'user',
+          role: "user",
           content: prompt,
         },
       ],
-      model: 'mixtral-8x7b-32768', // You can replace this with your specific model
+      model: "mixtral-8x7b-32768", // You can replace this with your specific model
     });
 
     // Extract the AI response from the API response
-    const aiResponse = response.choices[0]?.message?.content || 'No response generated';
+    const aiResponse =
+      response.choices[0]?.message?.content || "No response generated";
 
     // Send the AI response back to the client
     res.json({ aiResponse });
-
   } catch (error) {
-    console.error('Error generating AI response:', error);
-    res.status(500).json({ error: 'An error occurred while generating the response' });
+    console.error("Error generating AI response:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while generating the response" });
   }
 });
 
-app.get('/',(req,res)=>{res.send("Samarthan")})
+app.get("/", (req, res) => {
+  res.send("Samarthan");
+});
 
 // Start the server
 const port = process.env.PORT || 5000;

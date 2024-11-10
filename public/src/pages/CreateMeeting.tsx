@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
 import { useAppSelector } from "./redux";
 
-const appId = 1044134370;
-const serverSecret = "1ae8e04c89553561675c96cd5da2cc02";
+const appId = 1869906527;
+const serverSecret = "bf6ec9883457cff5fdacd2286305dc3b";
 
 const JoinMeeting: React.FC = () => {
   const [isAllowed, setIsAllowed] = useState(false);

@@ -12,7 +12,14 @@ import {
 import { setLanguage, useAppDispatch } from "./redux";
 import { Sidebar, SidebarItem } from "./Sidebar";
 import Header from "../components/Header";
-import { Book, Map, CheckCircle, Code, MessageCircle, User } from "lucide-react";
+import {
+  Book,
+  Map,
+  CheckCircle,
+  Code,
+  MessageCircle,
+  User,
+} from "lucide-react";
 
 const Portal = () => {
   const navigate = useNavigate();
@@ -96,70 +103,74 @@ const Portal = () => {
     <div className="flex min-h-screen bg-gradient-to-r from-blue-100 via-white to-blue-100">
       <Sidebar>
         <SidebarItem onClick={() => navigate("/ai-tutor")}>
-          <Code style={{ marginRight: '8px' }} />
+          <Code style={{ marginRight: "8px" }} />
           Code Editor
         </SidebarItem>
         <SidebarItem onClick={() => navigate("/project-roadmap")}>
-          <Map style={{ marginRight: '8px' }} />
+          <Map style={{ marginRight: "8px" }} />
           Roadmap Generator
         </SidebarItem>
         <SidebarItem onClick={() => setActiveTab("learning")}>
-          <Book style={{ marginRight: '8px' }} />
+          <Book style={{ marginRight: "8px" }} />
           Learning Modules
         </SidebarItem>
         <SidebarItem onClick={() => setActiveTab("testing")}>
-          <CheckCircle style={{ marginRight: '8px' }} />
+          <CheckCircle style={{ marginRight: "8px" }} />
           Testing Modules
         </SidebarItem>
         <SidebarItem onClick={() => navigate("/forum")}>
-          <MessageCircle style={{ marginRight: '8px' }} />
+          <MessageCircle style={{ marginRight: "8px" }} />
           Query Forum
         </SidebarItem>
         <SidebarItem onClick={() => navigate("/your-profile")}>
-          <User style={{ marginRight: '8px' }} />
+          <User style={{ marginRight: "8px" }} />
           My Profile
         </SidebarItem>
       </Sidebar>
       <div className="flex-grow">
-
         <div className="max-w-7xl mx-auto p-10">
           <h1 className="text-5xl font-extrabold text-gray-800 text-center mb-10">
-            {activeTab === "learning" ? "Explore Learning Modules" : "Test Your Skills"}
+            {activeTab === "learning"
+              ? "Explore Learning Modules"
+              : "Test Your Skills"}
           </h1>
 
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {(activeTab === "learning" ? learningModules : testingModules).map((module, index) => (
-              <div
-                key={index}
-                className="card bg-white shadow-xl rounded-lg p-6 transition duration-300 ease-in-out transform hover:scale-105"
-              >
-                {module.icon}
-                <h2 className="card-title text-2xl font-bold text-gray-800 mb-4">
-                  {module.title}
-                </h2>
-                <p className="text-gray-700 mb-2">{module.description}</p>
-                <div className="badge badge-outline mb-4">
-                  Questions: {module.questions}
-                </div>
-                <button
-                  className="btn btn-primary"
-                  onClick={() => {
-                    const route = module.route;
-                    const regex = /\/(module|quiz)\/(\w+)/;
-                    const match = route.match(regex);
-
-                    if (match) {
-                      const lang = match[2];
-                      dispatch(setLanguage({ language: lang }));
-                    }
-                    navigate(module.route);
-                  }}
+            {(activeTab === "learning" ? learningModules : testingModules).map(
+              (module, index) => (
+                <div
+                  key={index}
+                  className="card bg-white shadow-xl rounded-lg p-6 transition duration-300 ease-in-out transform hover:scale-105"
                 >
-                  {activeTab === "learning" ? "Start Learning" : "Start Testing"}
-                </button>
-              </div>
-            ))}
+                  {module.icon}
+                  <h2 className="card-title text-2xl font-bold text-gray-800 mb-4">
+                    {module.title}
+                  </h2>
+                  <p className="text-gray-700 mb-2">{module.description}</p>
+                  <div className="badge badge-outline mb-4">
+                    Questions: {module.questions}
+                  </div>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      const route = module.route;
+                      const regex = /\/(module|quiz)\/(\w+)/;
+                      const match = route.match(regex);
+
+                      if (match) {
+                        const lang = match[2];
+                        dispatch(setLanguage({ language: lang }));
+                      }
+                      navigate(module.route);
+                    }}
+                  >
+                    {activeTab === "learning"
+                      ? "Start Learning"
+                      : "Start Testing"}
+                  </button>
+                </div>
+              )
+            )}
           </div>
         </div>
       </div>

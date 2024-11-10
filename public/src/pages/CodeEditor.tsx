@@ -7,7 +7,8 @@ import Confetti from "react-confetti";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "./redux";
 
-const apiUrl = process.env.REACT_APP_API;
+// const apiUrl = process.env.REACT_APP_API;
+const apiUrl = "http://localhost:5000";
 
 function CodeEditor() {
   const [question, setQuestion] = useState("");

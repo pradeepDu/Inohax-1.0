@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { setIncrementStar, setUserTags, useAppDispatch } from "./redux";
 
-const apiUrl = process.env.REACT_APP_API;
+// const apiUrl = process.env.REACT_APP_API;
+const apiUrl = "http://localhost:5000";
 
 const Quiz = () => {
   const { id } = useParams();
