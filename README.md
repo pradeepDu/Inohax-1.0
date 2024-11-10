@@ -1,4 +1,4 @@
-# HackCelestial 1.0 - EzCode
+# Inohax 1.0 
 
 **Team Name:** Vimarsha 
 
@@ -146,9 +146,7 @@ This end-to-end solution empowers users from beginner to professional level, int
 
 ## 📸 Screenshots
 1. Home page
-
-![image](https://github.com/user-attachments/assets/dbd8f77f-59f1-4e40-8061-24e74f183aa8)
-
+![image](https://github.com/user-attachments/assets/3846afe5-b4b3-417c-b4a9-86258f7d5d31)
 
 2. AI based code editor
    
